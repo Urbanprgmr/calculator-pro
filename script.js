@@ -34,6 +34,18 @@ function calculateTotalFromPercentage() {
     }
 }
 
+// What Percent is (X) of (Y)?
+function calculateWhatPercent() {
+    let x = parseFloat(document.getElementById("percentX").value);
+    let y = parseFloat(document.getElementById("percentY").value);
+    if (!isNaN(x) && !isNaN(y) && y !== 0) {
+        let percentage = (x / y) * 100;
+        document.getElementById("percentXYResult").innerText = `Result: ${percentage.toFixed(2)}%`;
+    } else {
+        document.getElementById("percentXYResult").innerText = "Please enter valid numbers";
+    }
+}
+
 // Ratio & Proportion Calculator
 function calculateRatio() {
     let a = parseFloat(document.getElementById("ratioA").value);
