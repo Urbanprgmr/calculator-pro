@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ultimate Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Ultimate Calculator</h1>
+
+        <!-- Percentage Calculator -->
+        <div class="calculator">
+            <h2>Percentage Calculator</h2>
+            <input type="number" id="percentValue" placeholder="Enter percentage">
+            <input type="number" id="percentTotal" placeholder="Enter total">
+            <button onclick="calculatePercentage()">Calculate</button>
+            <p id="percentResult"></p>
+        </div>
+
+        <!-- Ratio & Proportion -->
+        <div class="calculator">
+            <h2>Ratio & Proportion</h2>
+            <input type="number" id="ratioA" placeholder="Enter first ratio">
+            <input type="number" id="ratioB" placeholder="Enter second ratio">
+            <input type="number" id="ratioX" placeholder="Enter proportion value (optional)">
+            <button onclick="calculateRatio()">Calculate</button>
+            <p id="ratioResult"></p>
+        </div>
+
+        <!-- Equation Solver -->
+        <div class="calculator">
+            <h2>Equation Solver</h2>
+            <input type="text" id="equationInput" placeholder="Enter equation (e.g., 2x+5=15)">
+            <button onclick="solveEquation()">Solve</button>
+            <p id="equationResult"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
