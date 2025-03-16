@@ -10,29 +10,19 @@
     <div class="container">
         <h1>Ultimate Calculator</h1>
 
-        <!-- Percentage Calculations -->
-        <div class="calculator">
+        <!-- Menu Buttons -->
+        <div class="menu">
+            <button onclick="showCalculator('percentage')">Percentage</button>
+            <button onclick="showCalculator('ratio')">Ratio & Proportion</button>
+            <button onclick="showCalculator('equation')">Equation Solver</button>
+            <button onclick="showCalculator('currency')">Currency Converter</button>
+            <button onclick="showCalculator('time')">Time & Date</button>
+        </div>
+
+        <!-- Percentage Calculator -->
+        <div class="calculator" id="percentage">
             <h2>Percentage Calculator</h2>
-
-            <label>Find Percentage of a Number</label>
-            <input type="number" id="percentValue" placeholder="Percentage">
-            <input type="number" id="percentTotal" placeholder="Total">
-            <button onclick="calculatePercentage()">Calculate</button>
-            <p id="percentResult"></p>
-
-            <label>Find Percentage Increase/Decrease</label>
-            <input type="number" id="percentOld" placeholder="Old Value">
-            <input type="number" id="percentNew" placeholder="New Value">
-            <button onclick="calculatePercentageChange()">Calculate</button>
-            <p id="percentChangeResult"></p>
-
-            <label>Find the Total from a Percentage</label>
-            <input type="number" id="percentPart" placeholder="Part">
-            <input type="number" id="percentKnown" placeholder="Known Percentage">
-            <button onclick="calculateTotalFromPercentage()">Calculate</button>
-            <p id="percentTotalResult"></p>
-
-            <label>What Percent is (X) of (Y)?</label>
+            <label>What percent is (X) of (Y)?</label>
             <input type="number" id="percentX" placeholder="Enter X">
             <input type="number" id="percentY" placeholder="Enter Y">
             <button onclick="calculateWhatPercent()">Calculate</button>
@@ -40,25 +30,46 @@
         </div>
 
         <!-- Ratio & Proportion -->
-        <div class="calculator">
+        <div class="calculator" id="ratio">
             <h2>Ratio & Proportion</h2>
             <label>Enter first ratio</label>
             <input type="number" id="ratioA">
             <label>Enter second ratio</label>
             <input type="number" id="ratioB">
-            <label>Enter proportion value (optional)</label>
-            <input type="number" id="ratioX">
             <button onclick="calculateRatio()">Calculate</button>
             <p id="ratioResult"></p>
         </div>
 
         <!-- Equation Solver -->
-        <div class="calculator">
+        <div class="calculator" id="equation">
             <h2>Equation Solver</h2>
             <label>Enter equation (e.g., 2x+5=15)</label>
             <input type="text" id="equationInput">
             <button onclick="solveEquation()">Solve</button>
             <p id="equationResult"></p>
+        </div>
+
+        <!-- Currency Converter -->
+        <div class="calculator" id="currency">
+            <h2>Currency Converter</h2>
+            <label>Enter Amount</label>
+            <input type="number" id="currencyAmount">
+            <label>From</label>
+            <select id="fromCurrency"></select>
+            <label>To</label>
+            <select id="toCurrency"></select>
+            <button onclick="convertCurrency()">Convert</button>
+            <p id="currencyResult"></p>
+        </div>
+
+        <!-- Time & Date Calculator -->
+        <div class="calculator" id="time">
+            <h2>Time & Date Calculator</h2>
+            <label>Find Difference Between Two Dates</label>
+            <input type="date" id="date1">
+            <input type="date" id="date2">
+            <button onclick="calculateDateDifference()">Calculate</button>
+            <p id="dateResult"></p>
         </div>
     </div>
 
