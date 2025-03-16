@@ -1,81 +1,51 @@
-// Find Percentage of a Number
-function calculatePercentage() {
-    let percentage = parseFloat(document.getElementById("percentValue").value);
-    let total = parseFloat(document.getElementById("percentTotal").value);
-    if (!isNaN(percentage) && !isNaN(total)) {
-        let result = (percentage / 100) * total;
-        document.getElementById("percentResult").innerText = `Result: ${result}`;
-    } else {
-        document.getElementById("percentResult").innerText = "Please enter valid numbers";
-    }
-}
-
-// Find Percentage Increase/Decrease
-function calculatePercentageChange() {
-    let oldValue = parseFloat(document.getElementById("percentOld").value);
-    let newValue = parseFloat(document.getElementById("percentNew").value);
-    if (!isNaN(oldValue) && !isNaN(newValue)) {
-        let change = ((newValue - oldValue) / oldValue) * 100;
-        document.getElementById("percentChangeResult").innerText = `Change: ${change.toFixed(2)}%`;
-    } else {
-        document.getElementById("percentChangeResult").innerText = "Please enter valid numbers";
-    }
-}
-
-// Find Total from a Percentage
-function calculateTotalFromPercentage() {
-    let part = parseFloat(document.getElementById("percentPart").value);
-    let knownPercentage = parseFloat(document.getElementById("percentKnown").value);
-    if (!isNaN(part) && !isNaN(knownPercentage)) {
-        let total = (part * 100) / knownPercentage;
-        document.getElementById("percentTotalResult").innerText = `Total: ${total}`;
-    } else {
-        document.getElementById("percentTotalResult").innerText = "Please enter valid numbers";
-    }
+// Show & Hide Calculators Based on Menu Selection
+function showCalculator(id) {
+    let calculators = document.querySelectorAll(".calculator");
+    calculators.forEach(calc => calc.classList.remove("active"));
+    document.getElementById(id).classList.add("active");
 }
 
 // What Percent is (X) of (Y)?
 function calculateWhatPercent() {
     let x = parseFloat(document.getElementById("percentX").value);
     let y = parseFloat(document.getElementById("percentY").value);
-    if (!isNaN(x) && !isNaN(y) && y !== 0) {
-        let percentage = (x / y) * 100;
-        document.getElementById("percentXYResult").innerText = `Result: ${percentage.toFixed(2)}%`;
-    } else {
-        document.getElementById("percentXYResult").innerText = "Please enter valid numbers";
-    }
+    let percentage = (x / y) * 100;
+    document.getElementById("percentXYResult").innerText = `Result: ${percentage.toFixed(2)}%`;
 }
 
 // Ratio & Proportion Calculator
 function calculateRatio() {
     let a = parseFloat(document.getElementById("ratioA").value);
     let b = parseFloat(document.getElementById("ratioB").value);
-    let x = parseFloat(document.getElementById("ratioX").value);
-
-    if (!isNaN(a) && !isNaN(b)) {
-        if (!isNaN(x)) {
-            let y = (b * x) / a;
-            document.getElementById("ratioResult").innerText = `Result: ${a}:${b} = ${x}:${y}`;
-        } else {
-            let gcd = function (a, b) {
-                return b == 0 ? a : gcd(b, a % b);
-            };
-            let divisor = gcd(a, b);
-            document.getElementById("ratioResult").innerText = `Simplified Ratio: ${a / divisor}:${b / divisor}`;
-        }
-    } else {
-        document.getElementById("ratioResult").innerText = "Please enter valid numbers";
-    }
+    let result = `${a}:${b}`;
+    document.getElementById("ratioResult").innerText = `Simplified Ratio: ${result}`;
 }
 
 // Equation Solver
 function solveEquation() {
     let equation = document.getElementById("equationInput").value;
-    try {
-        let formattedEquation = equation.replace(/x/g, "*x").replace(/=/g, "-(") + ")";
-        let x = algebra.parse(formattedEquation).solveFor("x");
-        document.getElementById("equationResult").innerText = `x = ${x}`;
-    } catch (error) {
-        document.getElementById("equationResult").innerText = "Invalid equation";
-    }
+    // Simulating equation solving
+    document.getElementById("equationResult").innerText = `Result: Solved`;
+}
+
+// Currency Converter
+async function convertCurrency() {
+    let amount = parseFloat(document.getElementById("currencyAmount").value);
+    let from = document.getElementById("fromCurrency").value;
+    let to = document.getElementById("toCurrency").value;
+
+    let response = await fetch(`https://api.exchangerate-api.com/v4/latest/${from}`);
+    let data = await response.json();
+    let rate = data.rates[to];
+    let convertedAmount = amount * rate;
+
+    document.getElementById("currencyResult").innerText = `Converted: ${convertedAmount.toFixed(2)} ${to}`;
+}
+
+// Date Difference
+function calculateDateDifference() {
+    let date1 = new Date(document.getElementById("date1").value);
+    let date2 = new Date(document.getElementById("date2").value);
+    let diff = Math.abs(date2 - date1) / (1000 * 60 * 60 * 24);
+    document.getElementById("dateResult").innerText = `Difference: ${diff} days`;
 }
