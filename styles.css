@@ -4,6 +4,7 @@ body {
     color: white;
     text-align: center;
     padding: 20px;
+    transition: all 0.3s ease-in-out;
 }
 
 .container {
@@ -13,6 +14,7 @@ body {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease-in-out;
 }
 
 h1 {
@@ -20,11 +22,34 @@ h1 {
     margin-bottom: 20px;
 }
 
+.menu {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.menu button {
+    background: #ff9800;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
 .calculator {
+    display: none;
     background: rgba(255, 255, 255, 0.2);
     padding: 15px;
     border-radius: 10px;
     margin-top: 20px;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.calculator.active {
+    display: block;
+    opacity: 1;
 }
 
 label {
@@ -33,7 +58,7 @@ label {
     margin-top: 10px;
 }
 
-input {
+input, select {
     width: 90%;
     padding: 10px;
     margin: 5px 0;
