@@ -1,4 +1,4 @@
-// Percentage Calculator
+// Find Percentage of a Number
 function calculatePercentage() {
     let percentage = parseFloat(document.getElementById("percentValue").value);
     let total = parseFloat(document.getElementById("percentTotal").value);
@@ -7,6 +7,30 @@ function calculatePercentage() {
         document.getElementById("percentResult").innerText = `Result: ${result}`;
     } else {
         document.getElementById("percentResult").innerText = "Please enter valid numbers";
+    }
+}
+
+// Find Percentage Increase/Decrease
+function calculatePercentageChange() {
+    let oldValue = parseFloat(document.getElementById("percentOld").value);
+    let newValue = parseFloat(document.getElementById("percentNew").value);
+    if (!isNaN(oldValue) && !isNaN(newValue)) {
+        let change = ((newValue - oldValue) / oldValue) * 100;
+        document.getElementById("percentChangeResult").innerText = `Change: ${change.toFixed(2)}%`;
+    } else {
+        document.getElementById("percentChangeResult").innerText = "Please enter valid numbers";
+    }
+}
+
+// Find Total from a Percentage
+function calculateTotalFromPercentage() {
+    let part = parseFloat(document.getElementById("percentPart").value);
+    let knownPercentage = parseFloat(document.getElementById("percentKnown").value);
+    if (!isNaN(part) && !isNaN(knownPercentage)) {
+        let total = (part * 100) / knownPercentage;
+        document.getElementById("percentTotalResult").innerText = `Total: ${total}`;
+    } else {
+        document.getElementById("percentTotalResult").innerText = "Please enter valid numbers";
     }
 }
 
