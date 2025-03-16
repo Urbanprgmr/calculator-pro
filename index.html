@@ -14,9 +14,9 @@
         <div class="menu">
             <button onclick="showCalculator('percentage')">Percentage</button>
             <button onclick="showCalculator('ratio')">Ratio & Proportion</button>
-            <button onclick="showCalculator('equation')">Equation Solver</button>
-            <button onclick="showCalculator('currency')">Currency Converter</button>
-            <button onclick="showCalculator('time')">Time & Date</button>
+            <button onclick="showCalculator('mass')">Mass Converter</button>
+            <button onclick="showCalculator('length')">Length Converter</button>
+            <button onclick="showCalculator('speed')">Speed Converter</button>
         </div>
 
         <!-- Percentage Calculator -->
@@ -53,36 +53,75 @@
             <p id="ratioResult"></p>
         </div>
 
-        <!-- Equation Solver -->
-        <div class="calculator" id="equation">
-            <h2>Equation Solver</h2>
-            <label>Enter equation (e.g., 2x+5=15)</label>
-            <input type="text" id="equationInput">
-            <button onclick="solveEquation()">Solve</button>
-            <p id="equationResult"></p>
-        </div>
-
-        <!-- Currency Converter -->
-        <div class="calculator" id="currency">
-            <h2>Currency Converter</h2>
-            <label>Enter Amount</label>
-            <input type="number" id="currencyAmount">
+        <!-- Mass Unit Converter -->
+        <div class="calculator" id="mass">
+            <h2>Mass Unit Converter</h2>
+            <label>Enter Value</label>
+            <input type="number" id="massValue">
             <label>From</label>
-            <select id="fromCurrency"></select>
+            <select id="massFrom">
+                <option value="kg">Kilograms</option>
+                <option value="g">Grams</option>
+                <option value="lb">Pounds</option>
+                <option value="oz">Ounces</option>
+            </select>
             <label>To</label>
-            <select id="toCurrency"></select>
-            <button onclick="convertCurrency()">Convert</button>
-            <p id="currencyResult"></p>
+            <select id="massTo">
+                <option value="kg">Kilograms</option>
+                <option value="g">Grams</option>
+                <option value="lb">Pounds</option>
+                <option value="oz">Ounces</option>
+            </select>
+            <button onclick="convertMass()">Convert</button>
+            <p id="massResult"></p>
         </div>
 
-        <!-- Time & Date Calculator -->
-        <div class="calculator" id="time">
-            <h2>Time & Date Calculator</h2>
-            <label>Find Difference Between Two Dates</label>
-            <input type="date" id="date1">
-            <input type="date" id="date2">
-            <button onclick="calculateDateDifference()">Calculate</button>
-            <p id="dateResult"></p>
+        <!-- Length Unit Converter -->
+        <div class="calculator" id="length">
+            <h2>Length Unit Converter</h2>
+            <label>Enter Value</label>
+            <input type="number" id="lengthValue">
+            <label>From</label>
+            <select id="lengthFrom">
+                <option value="m">Meters</option>
+                <option value="cm">Centimeters</option>
+                <option value="km">Kilometers</option>
+                <option value="mi">Miles</option>
+                <option value="ft">Feet</option>
+                <option value="in">Inches</option>
+            </select>
+            <label>To</label>
+            <select id="lengthTo">
+                <option value="m">Meters</option>
+                <option value="cm">Centimeters</option>
+                <option value="km">Kilometers</option>
+                <option value="mi">Miles</option>
+                <option value="ft">Feet</option>
+                <option value="in">Inches</option>
+            </select>
+            <button onclick="convertLength()">Convert</button>
+            <p id="lengthResult"></p>
+        </div>
+
+        <!-- Speed Converter -->
+        <div class="calculator" id="speed">
+            <h2>Speed Converter</h2>
+            <label>Enter Value</label>
+            <input type="number" id="speedValue">
+            <label>From</label>
+            <select id="speedFrom">
+                <option value="kmh">Kilometers per Hour</option>
+                <option value="mph">Miles per Hour</option>
+                <option value="mps">Meters per Second</option>
+            </select>
+            <label>To</label>
+            <select id="speedTo">
+                <option value="kmh">Kilometers per Hour</option>
+                <option value="mph">Miles per Hour</option>
+                <option value="mps">Meters per Second</option>
+            </select>
+            <button onclick="convertSpeed()">Convert</button>
+            <p id="speedResult"></p>
         </div>
     </div>
 
