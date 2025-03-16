@@ -1,4 +1,3 @@
-// Show & Hide Calculators Based on Menu Selection
 function showCalculator(id) {
     let calculators = document.querySelectorAll(".calculator");
     calculators.forEach(calc => calc.classList.remove("active"));
@@ -12,8 +11,6 @@ function calculateSimplePercentage() {
     if (!isNaN(value) && !isNaN(percent)) {
         let result = (percent / 100) * value;
         document.getElementById("simplePercentageResult").innerText = `Result: ${result}`;
-    } else {
-        document.getElementById("simplePercentageResult").innerText = "Please enter valid numbers";
     }
 }
 
@@ -24,8 +21,6 @@ function calculateWhatPercent() {
     if (!isNaN(x) && !isNaN(y) && y !== 0) {
         let percentage = (x / y) * 100;
         document.getElementById("percentXYResult").innerText = `Result: ${percentage.toFixed(2)}%`;
-    } else {
-        document.getElementById("percentXYResult").innerText = "Please enter valid numbers";
     }
 }
 
@@ -36,41 +31,38 @@ function calculateWhichPercent() {
     if (!isNaN(x) && !isNaN(y) && y !== 0) {
         let percentValue = (x / y) * 100;
         document.getElementById("whichPercentResult").innerText = `Result: ${x} is ${percentValue.toFixed(2)}% of ${y}`;
-    } else {
-        document.getElementById("whichPercentResult").innerText = "Please enter valid numbers";
     }
 }
 
-// Ratio & Proportion Calculator
-function calculateRatio() {
-    let a = parseFloat(document.getElementById("ratioA").value);
-    let b = parseFloat(document.getElementById("ratioB").value);
-    let result = `${a}:${b}`;
-    document.getElementById("ratioResult").innerText = `Simplified Ratio: ${result}`;
+// Mass, Length, Speed Converters
+function convertMass() {
+    let conversionRates = { "kg": 1, "g": 1000, "lb": 2.20462, "oz": 35.274 };
+    let value = parseFloat(document.getElementById("massValue").value);
+    let result = (value / conversionRates[massFrom.value]) * conversionRates[massTo.value];
+    document.getElementById("massResult").innerText = `Result: ${result.toFixed(2)} ${massTo.value}`;
 }
 
-// Equation Solver
-function solveEquation() {
-    let equation = document.getElementById("equationInput").value;
-    document.getElementById("equationResult").innerText = `Result: Solved`;
+function convertLength() {
+    let value = parseFloat(document.getElementById("lengthValue").value);
+    let from = document.getElementById("lengthFrom").value;
+    let to = document.getElementById("lengthTo").value;
+    
+    let conversionRates = {
+        "m": 1, "cm": 100, "mm": 1000, "km": 0.001, 
+        "mi": 0.000621371, "ft": 3.28084, "in": 39.3701
+    };
+
+    if (!isNaN(value)) {
+        let result = (value / conversionRates[from]) * conversionRates[to];
+        document.getElementById("lengthResult").innerText = `Result: ${result.toFixed(2)} ${to}`;
+    } else {
+        document.getElementById("lengthResult").innerText = "Please enter a valid number";
+    }
 }
 
-// Currency Converter (Mock API Call)
-async function convertCurrency() {
-    let amount = parseFloat(document.getElementById("currencyAmount").value);
-    let from = document.getElementById("fromCurrency").value;
-    let to = document.getElementById("toCurrency").value;
-    let response = await fetch(`https://api.exchangerate-api.com/v4/latest/${from}`);
-    let data = await response.json();
-    let rate = data.rates[to];
-    let convertedAmount = amount * rate;
-    document.getElementById("currencyResult").innerText = `Converted: ${convertedAmount.toFixed(2)} ${to}`;
-}
-
-// Date Difference
-function calculateDateDifference() {
-    let date1 = new Date(document.getElementById("date1").value);
-    let date2 = new Date(document.getElementById("date2").value);
-    let diff = Math.abs(date2 - date1) / (1000 * 60 * 60 * 24);
-    document.getElementById("dateResult").innerText = `Difference: ${diff} days`;
+function convertSpeed() {
+    let conversionRates = { "kmh": 1, "mph": 0.621371, "mps": 0.277778 };
+    let value = parseFloat(document.getElementById("speedValue").value);
+    let result = (value / conversionRates[speedFrom.value]) * conversionRates[speedTo.value];
+    document.getElementById("speedResult").innerText = `Result: ${result.toFixed(2)} ${speedTo.value}`;
 }
